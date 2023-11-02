@@ -1,32 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Admin')
 @section('body')
-    <style>
-        .sidebar {
-            height: 100vh;
-            width: 250px;
-            padding-top: 20px;
-        }
-
-        .sidebar a {
-            padding: 10px 15px;
-            text-align: left;
-            text-decoration: none;
-            font-size: 18px;
-            color: #000000;
-            /* color: #fff; */
-            display: block;
-            transition: .2s;
-        }
-
-        .sidebar a:hover {
-            background-color: rgb(207, 59, 59);
-            color: #fff;
-        }
-    </style>
-
     <nav class="navbar navbar-expand-lg" style="background: rgb(255, 223, 182);">
-        <div class="container-fluid">
+        <div class="container-fluid px-3">
             <a class="navbar-brand fw-bold" style="color: #3b3b0d;" href="/admin">STT Admin Panel</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -34,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse mx-3" id="navbarNav">
                 <a class="btn btn-danger btn-sm ms-auto" href="#">
                     <i class="bi bi-box-arrow-left" style="font-size: 13px;"></i>
                     <span style="font-size: 14px;">Logout</span>
@@ -50,11 +26,11 @@
                     alt="picture" width="50">
                 <p class="text-white fs-5 mt-3">Admin</p>
             </div>
-            <div class="">
-                <a href="#">Kegiatan</a>
-                <a href="#">Anggota</a>
-                <a href="#">Berita</a>
-                <a href="#">Profil STT</a>
+            <div>
+                <a class="{{ Request::is('admin/kegiatan*') ? 'active-nav' : '' }}" href="/admin/kegiatan">Kegiatan</a>
+                <a class="{{ Request::is('admin/anggota*') ? 'active-nav' : '' }}" href="/admin/anggota">Anggota</a>
+                <a class="{{ Request::is('admin/berita*') ? 'active-nav' : '' }}" href="/admin/berita">Berita</a>
+                <a class="{{ Request::is('admin/profil*') ? 'active-nav' : '' }}" href="/admin/profil">Profil STT</a>
             </div>
         </div>
         <div class="w-100 p-5">

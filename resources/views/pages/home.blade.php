@@ -22,7 +22,7 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <a class="btn btn-secondary btn-sm" href="/login">
+                <a class="btn btn-success btn-sm" href="/login">
                     <i class="bi bi-person-lock" style="font-size: 15px;"></i>
                     <span>Login</span>
                 </a>
@@ -40,8 +40,7 @@
         <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
             @for ($i = 0; $i < 6; $i++)
                 <div class="card" style="width: 20rem;">
-                    <img src="https://i.pinimg.com/736x/01/11/53/011153d1cc99a9f4c45feb71fa18a38b.jpg" class="card-img-top"
-                        alt="picture">
+                    <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="picture">
                     <div class="card-body">
                         <h5 class="card-title"><a href="#">Judul Berita</a></h5>
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis

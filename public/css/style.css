@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@200;300&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 18px;
+  color: #000000;
+  display: block;
+  transition: .2s;
+}
+
+.sidebar a:hover {
+  background-color: rgb(207, 59, 59);
+  color: #fff;
+}
+
+.sidebar a.active-nav {
+  background-color: rgb(207, 59, 59);
+  color: #fff;
+}
+
+.bg-kegiatan {
+  background-size: contain;
+  background-image: url('/img/background.jpg');
+}

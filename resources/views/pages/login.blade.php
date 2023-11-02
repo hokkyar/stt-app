@@ -29,7 +29,7 @@
                             <input name="password" type="password" class="form-control" id="password"
                                 placeholder="Masukkan password">
                         </div>
-                        <button type="submit" class="btn btn-secondary">
+                        <button type="submit" class="btn btn-success">
                             <i class="bi bi-person-lock" style="font-size: 15px;"></i>
                             Login
                         </button>
