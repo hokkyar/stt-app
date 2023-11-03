@@ -21,8 +21,8 @@
     <div class="card w-75 mx-auto">
         <div class="w-100 border bg-berita" style="height: 200px;">
             <div class="d-flex justify-content-end">
-                <button class="btn btn-danger" style="width: 120px;">Hapus</button>
                 <button class="btn btn-warning" style="width: 120px;">Edit</button>
+                <button class="btn btn-danger" style="width: 120px;">Hapus</button>
             </div>
         </div>
         <div class="card-body">

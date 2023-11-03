@@ -17,9 +17,9 @@
     </nav>
 
     <div class="card w-75 mx-auto">
-        <div class="w-100 border bg-stt" style="height: 200px;">
+        <div class="w-100 bg-stt" style="height: 200px;">
             <div class="d-flex justify-content-end">
-                <a href="/admin/profil/edit" class="btn btn-secondary" style="width: 120px;">Edit</a>
+                <a href="/admin/profil/edit" class="btn btn-warning rounded-0" style="width: 120px;">Edit</a>
             </div>
         </div>
         <div class="card-body">
