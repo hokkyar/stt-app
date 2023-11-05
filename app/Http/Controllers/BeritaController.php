@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class BeritaController extends Controller
 {
   public function index()
   {
-    return view('pages.admin.anggota.index');
+    return view('pages.admin.berita.index');
   }
 
   public function show()
   {
-    dd('halaman show');
+    return view('pages.admin.berita.detail');
   }
 
   public function add()
   {
-    return view('pages.admin.anggota.add');
+    dd('halaman add');
   }
 
   public function edit()

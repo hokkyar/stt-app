@@ -8,7 +8,7 @@
         </ol>
     </nav>
 
-    <a href="/kegiatan/add" class="btn btn-primary">Tambah Kegiatan</a>
+    <a href="/admin/kegiatan/add" class="btn btn-primary">Tambah Kegiatan</a>
 
     <div id="home" class="my-3 input-group mx-auto">
         <span style="background: rgb(255, 223, 182);" class="input-group-text" id="basic-addon1"><i

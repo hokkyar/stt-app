@@ -15,7 +15,7 @@ return new class extends Migration
       $table->id();
       $table->string('username');
       $table->string('password');
-      $table->enum('role', ['admin', 'user'])->default('user');
+      $table->enum('role', ['admin', 'anggota'])->default('anggota');
       $table->timestamps();
     });
   }

@@ -16,7 +16,7 @@ return new class extends Migration
       $table->unsignedBigInteger('user_id');
       $table->string('nama_anggota');
       $table->string('alamat');
-      $table->string('status');
+      $table->enum('status', ['aktif', 'non-aktif'])->default('aktif');
       $table->string('peran');
       $table->timestamps();
 
