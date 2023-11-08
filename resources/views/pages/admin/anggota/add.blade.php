@@ -11,25 +11,39 @@
     </nav>
 
     <div class="w-50 mx-auto card mb-3 px-4 py-4">
-        <form>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="m-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{ route('anggota.create') }}" method="POST">
+            @csrf
+            @method('POST')
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username">
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama_anggota" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama_anggota" name="nama_anggota" required>
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="alamat">
+                <input type="text" class="form-control" id="alamat" name="alamat" required>
             </div>
             <div class="mb-3">
-                <label for="jabatan" class="form-label">Jabatan</label>
-                <input type="text" class="form-control" id="jabatan">
+                <label for="peran" class="form-label">Peran</label>
+                <input type="text" class="form-control" id="peran" name="peran" required>
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select id="status" name="status" class="form-select">
-                    <option selected>Pilih status</option>
+                <select id="status" name="status" class="form-select" name="status">
                     <option value="aktif">Aktif</option>
-                    <option value="nonaktif">Non-aktif</option>
+                    <option value="nonaktif">Non-Aktif</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-3">Tambah</button>

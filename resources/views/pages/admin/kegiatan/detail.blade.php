@@ -6,28 +6,48 @@
             <li class="breadcrumb-item"><a href="/admin" class="text-dark" style="text-decoration: none;">Dashboard</a></li>
             <li class="breadcrumb-item" aria-current="page"><a href="/admin/kegiatan" class="text-dark"
                     style="text-decoration: none;">Kegiatan</a></li>
-            <li class="breadcrumb-item active" aria-current="page">id-kegiatan</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $kegiatan->id }}</li>
         </ol>
     </nav>
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <div class="card w-75 mx-auto">
         <div class="w-100 border bg-kegiatan" style="height: 200px;">
             <div class="d-flex justify-content-end">
-                <button class="btn btn-warning" style="width: 120px;">Edit</button>
-                <button class="btn btn-danger" style="width: 120px;">Hapus</button>
+                <a href="{{ route('kegiatan.edit', $kegiatan->id) }}" class="btn btn-warning" style="width: 120px;">Edit</a>
+                <form action="{{ route('kegiatan.delete', $kegiatan->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Hapus data ini?')" class="btn btn-danger"
+                        style="width: 120px;">Hapus</button>
+                </form>
             </div>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Judul Kegiatan</h5>
-            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, neque. Dolorem possimus
-                et enim vitae. Dolore harum dolorem cum illum eos repellendus voluptatum, aut voluptas esse deserunt
-                aliquid, non, sunt omnis! Eveniet, pariatur. Autem dolor reiciendis rerum, in reprehenderit nisi repudiandae
-                ea mollitia nulla, maiores cum ratione accusamus? Vero maxime, incidunt fugit eos ut cupiditate? Id sit
-                nesciunt nostrum ipsum aspernatur veritatis voluptatibus magni quae aliquid. Repudiandae aliquam officiis
-                repellat veniam excepturi perspiciatis quos error aperiam, iste beatae incidunt repellendus quam magni
-                assumenda eligendi cupiditate, autem facere architecto sit? Quasi, minus eius! Cupiditate eius minus, quo
-                ipsam mollitia in vero!
-            </p>
+            <h5 class="card-title">{{ $kegiatan->nama_kegiatan }}</h5>
+            <p class="card-title">Kategori: {{ Str::upper($kegiatan->kategori->nama_kategori) }}</p>
+            <p class="card-text">Deskripsi: {{ $kegiatan->deskripsi }}</p>
+            <p class="card-text">Tanggal Mulai: {{ $kegiatan->tanggal_mulai }}</p>
+            <p class="card-text">Tanggal Selesai: {{ $kegiatan->tanggal_selesai }}</p>
+            <p class="card-text">Tempat: {{ $kegiatan->tempat }}</p>
+            @if ($kegiatan->meet_link)
+                <p class="card-text">Link: <a href="{{ $kegiatan->meet_link }}">{{ $kegiatan->meet_link }}</a></p>
+            @endif
+            @if (count($anggota) == 0)
+                <p class="text-primary">Belum ada yang bergabung</p>
+            @else
+                <p>Anggota yang bergabung ({{ count($anggota) }}): </p>
+                <ul>
+                    @foreach ($anggota as $a)
+                        <li>{{ $a->anggota->nama_anggota }}</li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
 @endsection

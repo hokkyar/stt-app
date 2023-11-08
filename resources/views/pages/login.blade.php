@@ -16,6 +16,9 @@
             <div class="w-50">
                 <div class="card p-3">
                     <p class="card-text fs-4">Silahkan login untuk melanjutkan</p>
+                    @if ($errors->has('error'))
+                        <div class="alert alert-danger">Username atau password salah</div>
+                    @endif
                     <form action="" method="POST">
                         @csrf
                         @method('POST')

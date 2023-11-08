@@ -10,4 +10,9 @@ class Anggota extends Model
   use HasFactory;
   protected $table = 'anggota';
   protected $guarded = ['id'];
+
+  public function kegiatan_anggota()
+  {
+    return $this->hasMany(KegiatanAnggota::class, 'anggota_id');
+  }
 }

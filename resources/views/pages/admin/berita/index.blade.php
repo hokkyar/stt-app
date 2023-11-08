@@ -8,7 +8,14 @@
         </ol>
     </nav>
 
-    <a href="/berita/add" class="btn btn-primary">Tambah Berita</a>
+    @if (session('success'))
+        <div class="alert alert-success my-2">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <a href="{{ route('berita.add') }}" class="btn btn-primary">Tambah Berita</a>
+
 
     <div id="home" class="my-3 input-group mx-auto">
         <span style="background: rgb(255, 223, 182);" class="input-group-text" id="basic-addon1"><i
@@ -17,16 +24,14 @@
     </div>
 
     <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
-        @for ($i = 0; $i < 6; $i++)
+        @foreach ($all_berita as $berita)
             <div class="card" style="width: 20rem;">
-                <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="picture">
+                <img src="{{ $berita->sampul }}" class="card-img-top" alt="picture">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="/admin/berita/view/1">Judul Berita</a></h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis
-                        saepe....
-                    </p>
+                    <h5 class="card-title"><a href="/admin/berita/view/{{ $berita->id }}">{{ $berita->judul }}</a></h5>
+                    <p class="card-text">{{ $berita->isi }}</p>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
 @endsection

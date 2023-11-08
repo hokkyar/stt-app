@@ -8,7 +8,11 @@
         </ol>
     </nav>
 
-    <a href="/admin/kegiatan/add" class="btn btn-primary">Tambah Kegiatan</a>
+    @if (session('success'))
+        <p class="alert alert-success">{{ session('success') }}</p>
+    @endif
+
+    <a href="{{ route('kegiatan.add') }}" class="btn btn-primary">Tambah Kegiatan</a>
 
     <div id="home" class="my-3 input-group mx-auto">
         <span style="background: rgb(255, 223, 182);" class="input-group-text" id="basic-addon1"><i
@@ -17,16 +21,16 @@
     </div>
 
     <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
-        @for ($i = 0; $i < 6; $i++)
+        @foreach ($all_kegiatan as $kegiatan)
             <div class="card" style="width: 20rem;">
                 <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="picture">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="/admin/kegiatan/view/1">Judul Kegiatan</a></h5>
-                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis
-                        saepe....
-                    </p>
+                    <h5 class="card-title"><a
+                            href="/admin/kegiatan/view/{{ $kegiatan->id }}">{{ $kegiatan->nama_kegiatan }}</a></h5>
+                    <p class="card-text">{{ $kegiatan->deskripsi }}</p>
+                    <p class="card-text">{{ Str::upper($kegiatan->kategori->nama_kategori) }}</p>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
 @endsection

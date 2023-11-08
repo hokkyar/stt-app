@@ -14,7 +14,7 @@
             </h5>
         </div>
         <div class="p-3 w-75 text-center">
-            <h5 class="card-title">Nama STT Anda : --</h5>
+            <h5 class="card-title">Nama STT Anda : {{ $nama_stt }}</h5>
         </div>
     </div>
 
@@ -25,7 +25,7 @@
             </h5>
         </div>
         <div class="p-3 w-75 text-center">
-            <h5 class="card-title">Kegiatan Terbaru : --</h5>
+            <h5 class="card-title">Kegiatan Terbaru : {{ $kegiatan_terbaru->nama_kegiatan }}</h5>
         </div>
     </div>
 @endsection
