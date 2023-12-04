@@ -39,8 +39,7 @@
         <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
             @foreach ($all_berita as $berita)
                 <div class="card" style="width: 20rem;">
-                    {{-- <img src="{{ $berita->sampul }}" class="card-img-top" alt="picture"> --}}
-                    <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="picture">
+                    <img src="{{ asset($berita->sampul) }}" class="card-img-top" alt="picture">
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ route('homepage.show', $berita->id) }}">{{ $berita->judul }}</a>
                         </h5>
