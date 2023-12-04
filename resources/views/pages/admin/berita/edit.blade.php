@@ -22,7 +22,7 @@
             </div>
         @endif
 
-        <img style="max-height: 350px;" id="sampul_berita" src="{{ $berita->sampul }}" class="card-img-top mb-3"
+        <img style="max-height: 350px;" id="sampul_berita" src="{{ asset($berita->sampul) }}" class="card-img-top mb-3"
             alt="picture">
 
         <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">

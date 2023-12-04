@@ -28,8 +28,9 @@
                     {{ '@' . session('user')->username }}
                 </p>
             </div>
-            <div class="">
-                <a class="{{ Request::is('anggota/kegiatan*') ? 'active-nav' : '' }}" href="/anggota/kegiatan">Kegiatan</a>
+            <div class="mt-1">
+                <a class="{{ Request::is('anggota/kegiatan*') ? 'active-nav' : '' }}" href="/anggota/kegiatan"><i
+                        class="bi bi-activity mx-3"></i> Kegiatan</a>
             </div>
         </div>
         <div class="w-100 p-5">

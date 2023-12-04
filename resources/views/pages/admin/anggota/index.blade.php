@@ -48,7 +48,7 @@
                             {{ Str::title($anggota->anggota->status) }}</td>
                         <td>
                             <button onclick="viewData({{ json_encode($anggota) }})" class="btn text-primary m-0"
-                                data-bs-toggle="modal" data-bs-target="#modalData">View</button> |
+                                data-bs-toggle="modal" data-bs-target="#viewModal">View</button> |
                             <form class="d-inline-block" action="{{ route('anggota.delete', $anggota->id) }}"
                                 method="POST">
                                 @csrf
@@ -63,7 +63,7 @@
         </table>
     </div>
 
-    <div class="modal fade" id="modalData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

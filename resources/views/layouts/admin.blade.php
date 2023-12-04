@@ -26,15 +26,15 @@
                     alt="picture" width="50">
                 <p class="text-white fs-5 mt-3">{{ '@' . session('user')->username }}</p>
             </div>
-            <div>
-                <a class="{{ Request::is('admin/kegiatan*') ? 'active-nav' : '' }}" href="/admin/kegiatan"><i
-                        class="bi bi-box-seam-fill"></i> Kegiatan</a>
-                <a class="{{ Request::is('admin/anggota*') ? 'active-nav' : '' }}" href="/admin/anggota"><i
-                        class="bi bi-people-fill"></i> Anggota</a>
-                <a class="{{ Request::is('admin/berita*') ? 'active-nav' : '' }}" href="/admin/berita"><i
-                        class="bi bi-send-fill"></i> Berita</a>
-                <a class="{{ Request::is('admin/profil*') ? 'active-nav' : '' }}" href="/admin/profil"><i
-                        class="bi bi-fire"></i> Profil STT</a>
+            <div class="mt-1">
+                <a class="{{ Request::is('admin/kegiatan*') ? 'active-nav' : '' }}" href="/admin/kegiatan">
+                    <i class="bi bi-activity mx-3"></i> Kegiatan</a>
+                <a class="{{ Request::is('admin/anggota*') ? 'active-nav' : '' }}" href="/admin/anggota">
+                    <i class="bi bi-people-fill mx-3"></i> Anggota</a>
+                <a class="{{ Request::is('admin/berita*') ? 'active-nav' : '' }}" href="/admin/berita">
+                    <i class="bi bi-newspaper mx-3"></i> Berita</a>
+                <a class="{{ Request::is('admin/profil*') ? 'active-nav' : '' }}" href="/admin/profil">
+                    <i class="bi bi-diagram-3-fill mx-3"></i> Profil STT</a>
             </div>
         </div>
         <div class="w-100 p-5">

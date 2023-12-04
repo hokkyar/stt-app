@@ -9,7 +9,7 @@ class BeritaController extends Controller
 {
   public function index()
   {
-    $all_berita = Berita::all();
+    $all_berita = Berita::latest()->get();
     return view('pages.admin.berita.index', compact('all_berita'));
   }
 

@@ -4,7 +4,7 @@
         .bg-berita {
             background-size: cover;
             background-position-y: -80px;
-            background-image: url('{{ $berita->sampul }}');
+            background-image: url('{{ asset($berita->sampul) }}');
         }
     </style>
 
@@ -34,6 +34,8 @@
         <div class="card-body">
             <h5 class="card-title">{{ $berita->judul }}</h5>
             <p class="card-text">{{ $berita->isi }}</p>
+            <p class="card-text">Dibuat pada: {{ $berita->created_at }}</p>
+            <p class="card-text">Diperbarui pada: {{ $berita->updated_at }}</p>
         </div>
     </div>
 @endsection
