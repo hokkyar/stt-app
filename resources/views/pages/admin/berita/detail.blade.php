@@ -28,7 +28,12 @@
         <div class="w-100 border bg-berita" style="height: 200px;">
             <div class="d-flex justify-content-end">
                 <a href="{{ route('berita.edit', $berita->id) }}" class="btn btn-warning" style="width: 120px;">Edit</a>
-                <button class="btn btn-danger" style="width: 120px;">Hapus</button>
+                <form action="{{ route('berita.delete', $berita->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Hapus data ini?')" class="btn btn-danger"
+                        style="width: 120px;">Hapus</button>
+                </form>
             </div>
         </div>
         <div class="card-body">
