@@ -28,6 +28,8 @@
                 <p class="text-white text-center fs-6 my-2">{{ '@' . session('user')->username }}</p>
             </div>
             <div class="">
+                <a class="{{ Request::is('admin') ? 'active-nav' : '' }}" href="/admin/"><i
+                        class="bi bi-speedometer2 mx-3"></i></i> Dashboard</a>
                 <a class="{{ Request::is('admin/kegiatan*') ? 'active-nav' : '' }}" href="/admin/kegiatan">
                     <i class="bi bi-activity mx-3"></i> Kegiatan</a>
                 <a class="{{ Request::is('admin/anggota*') ? 'active-nav' : '' }}" href="/admin/anggota">

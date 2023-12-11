@@ -14,17 +14,34 @@
         <input type="text" class="form-control">
     </div>
 
-    <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
-        @foreach ($all_kegiatan as $kegiatan)
-            <div class="card" style="width: 20rem;">
-                <img src="{{ asset('img/background.jpg') }}" class="card-img-top" alt="picture">
-                <div class="card-body">
-                    <h5 class="card-title"><a
-                            href="/anggota/kegiatan/view/{{ $kegiatan->id }}">{{ $kegiatan->nama_kegiatan }}</a></h5>
-                    <p class="card-text">{{ $kegiatan->deskripsi }}</p>
-                    <p class="card-text">{{ Str::upper($kegiatan->kategori->nama_kategori) }}</p>
-                </div>
-            </div>
-        @endforeach
+    <div class="w-100 card mb-3 px-4 py-2">
+        <table id="table-list" class="display">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Kategori</th>
+                    <th>Deskripsi</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($all_kegiatan as $kegiatan)
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $kegiatan->nama_kegiatan }}</td>
+                        <td>{{ Str::title($kegiatan->kategori->nama_kategori) }}</td>
+                        <td>{{ Str::limit($kegiatan->deskripsi, 15, '...') }}</td>
+                        <td>
+                            <a href="/anggota/kegiatan/view/{{ $kegiatan->id }}" style="text-decoration: none;"
+                                class="btn text-primary">View</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
