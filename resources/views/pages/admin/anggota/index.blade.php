@@ -19,7 +19,7 @@
     <div id="home" class="my-3 input-group mx-auto">
         <span style="background: rgb(255, 223, 182);" class="input-group-text" id="basic-addon1"><i
                 class="bi bi-search"></i></span>
-        <input type="text" class="form-control">
+        <input id="search-input" type="text" class="form-control">
     </div>
 
     <div class="w-100 card mb-3 px-4 py-2">
@@ -39,11 +39,11 @@
                     $i = 1;
                 @endphp
                 @foreach ($all_anggota as $anggota)
-                    <tr>
+                    <tr class="item-list">
                         <td>{{ $i++ }}</td>
-                        <td>{{ $anggota->username }}</td>
-                        <td>{{ $anggota->anggota->nama_anggota }}</td>
-                        <td>{{ $anggota->anggota->alamat }}</td>
+                        <td class="username">{{ $anggota->username }}</td>
+                        <td class="nama_anggota">{{ $anggota->anggota->nama_anggota }}</td>
+                        <td class="alamat">{{ $anggota->anggota->alamat }}</td>
                         <td class="{{ $anggota->anggota->status == 'aktif' ? 'text-success' : 'text-danger' }}">
                             {{ Str::title($anggota->anggota->status) }}</td>
                         <td>
@@ -92,5 +92,28 @@
             $('#status-modal').text(data.anggota.status);
             $('#peran-modal').text(data.anggota.peran);
         }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                let searchTextTitle = $('#search-input').val().toLowerCase();
+                $('.item-list').each(function() {
+                    let username = $(this).find('.username').text().toLowerCase();
+                    let nama_anggota = $(this).find('.nama_anggota').text().toLowerCase();
+                    let alamat = $(this).find('.alamat').text().toLowerCase();
+
+                    let showUsername = username.includes(searchTextTitle);
+                    let showNama = nama_anggota.includes(searchTextTitle);
+                    let showAlamat = alamat.includes(searchTextTitle);
+
+                    if (showUsername || showNama || showAlamat) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
     </script>
 @endsection
