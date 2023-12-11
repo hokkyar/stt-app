@@ -3,7 +3,8 @@
 @section('body')
     <nav class="navbar navbar-expand-lg py-3" style="background: rgb(255, 223, 182);">
         <div class="container-fluid px-3">
-            <a class="navbar-brand fw-bold" style="color: #3b3b0d;" href="/anggota">STT Anggota</a>
+            <a class="navbar-brand fw-bold" style="color: #3b3b0d;" href="/anggota"><i class="bi bi-flower2"></i> STT
+                Anggota</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
