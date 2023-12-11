@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('title', 'Home')
 @section('body')
+    <style>
+        .bg-berita {
+            background-size: cover;
+            background-position-y: -80px;
+            background-image: url('{{ asset($berita->sampul) }}');
+        }
+    </style>
     <nav class="navbar navbar-expand-lg fixed-top" style="background: rgb(255, 223, 182);">
         <div class="container">
             <a class="navbar-brand fw-bold" style="color: #3b3b0d;" href="/">Sekaa Teruna Teruni</a>
@@ -30,20 +37,19 @@
     </nav>
 
     <div class="container py-2 mt-5">
-
-        <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
-            <div class="card" style="width: 50rem;">
-                <img src="{{ asset($berita->sampul) }}" class="card-img-top" alt="picture">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="{{ route('homepage.show', $berita->id) }}">{{ $berita->judul }}</a>
-                    </h5>
-                    <p class="card-text">{{ $berita->isi }}</p>
-                    <p style="color: rgb(121, 37, 199);">{{ $berita->updated_at }}</p>
+        <div class="card w-75 mx-auto my-3">
+            <div class="w-100 bg-berita" style="height: 200px;">
+                <div class="d-flex justify-content-start">
+                    <a href="/" class="btn btn-primary" style="width: 120px;">
+                        <i class="bi bi-arrow-left-circle"></i> Kembali
+                    </a>
                 </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ $berita->judul }}</h5>
+                <p class="card-text">{{ $berita->isi }}</p>
+                <p class="card-text">Diperbarui oleh Admin: {{ $berita->updated_at }}</p>
             </div>
         </div>
     </div>
-
-
-
 @endsection
