@@ -41,7 +41,7 @@
                 <label for="sampul" class="form-label">Cover</label><br>
                 <input type="file" class="form-control" id="sampul" name="sampul" accept="image/*">
             </div>
-            <button type="submit" class="btn btn-primary w-100 mt-3">Tambah</button>
+            <button type="submit" class="btn btn-warning w-100 mt-3">Update</button>
         </form>
     </div>
 

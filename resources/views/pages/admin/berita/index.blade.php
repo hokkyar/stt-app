@@ -27,7 +27,7 @@
         @foreach ($all_berita as $berita)
             <a href="/admin/berita/view/{{ $berita->id }}">
                 <div class="card item-list" style="width: 18rem;">
-                    <img src="{{ asset($berita->sampul) }}" class="card-img-top" alt="picture" style="max-height: 260px;">
+                    <img src="{{ asset($berita->sampul) }}" class="card-img-top" alt="picture" style="min-height: 300px;">
                     <div class="card-body">
                         <h5 class="card-title"><a class="item-title" style="text-decoration: none;"
                                 href="/admin/berita/view/{{ $berita->id }}">{{ $berita->judul }}</a>
