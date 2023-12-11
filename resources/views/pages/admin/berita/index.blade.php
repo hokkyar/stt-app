@@ -25,14 +25,18 @@
 
     <div class="d-flex flex-wrap gap-3 justify-content-center my-3">
         @foreach ($all_berita as $berita)
-            <div class="card" style="width: 20rem;">
-                <img src="{{ asset($berita->sampul) }}" class="card-img-top" alt="picture" style="max-height: 180px;">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="/admin/berita/view/{{ $berita->id }}">{{ $berita->judul }}</a></h5>
-                    <p class="card-text">{{ $berita->isi }}</p>
-                    <p class="card-text">{{ $berita->created_at }}</p>
+            <a href="/admin/berita/view/{{ $berita->id }}">
+                <div class="card" style="width: 20rem;">
+                    <img src="{{ asset($berita->sampul) }}" class="card-img-top" alt="picture" style="max-height: 260px;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a style="text-decoration: none;"
+                                href="/admin/berita/view/{{ $berita->id }}">{{ $berita->judul }}</a>
+                        </h5>
+                        <p class="card-text">{{ Str::limit($berita->isi, 30, '...') }}</p>
+                        <p class="card-text">{{ $berita->created_at }}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         @endforeach
     </div>
 @endsection
