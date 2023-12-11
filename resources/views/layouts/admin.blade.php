@@ -21,10 +21,11 @@
 
     <div class="d-flex">
         <div class="sidebar p-0" style="background: rgb(255, 223, 182);">
-            <div class="px-3 py-4 d-flex gap-1 align-items-center" style="background-color: rgb(207, 59, 59);">
-                <img class="rounded-circle" src="https://i.pinimg.com/736x/01/11/53/011153d1cc99a9f4c45feb71fa18a38b.jpg"
-                    alt="picture" width="50">
-                <p class="text-white fs-5 mt-3">{{ '@' . session('user')->username }}</p>
+            <div class="px-3 py-2 text-center" style="background-color: rgb(207, 59, 59);">
+                <img style="display: inline-block; vertical-align: middle;" class="rounded-circle mx-auto mt-3"
+                    src="https://i.pinimg.com/736x/01/11/53/011153d1cc99a9f4c45feb71fa18a38b.jpg" alt="picture"
+                    width="65">
+                <p class="text-white text-center fs-6 my-2">{{ '@' . session('user')->username }}</p>
             </div>
             <div class="mt-1">
                 <a class="{{ Request::is('admin/kegiatan*') ? 'active-nav' : '' }}" href="/admin/kegiatan">
