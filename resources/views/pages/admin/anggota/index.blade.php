@@ -8,7 +8,13 @@
         </ol>
     </nav>
 
-    <a href="{{ route('anggota.add') }}" class="btn btn-primary">Tambah Anggota</a>
+    <div class="d-flex justify-content-between">
+        <a href="{{ route('anggota.add') }}" class="btn btn-primary">Tambah Anggota</a>
+        <button onclick="downloadPDF()" class="btn btn-secondary"><i class="bi bi-file-earmark-pdf"></i> Unduh
+            Daftar
+            Anggota
+        </button>
+    </div>
 
     @if (session('success'))
         <div class="alert alert-success mt-3">
@@ -31,7 +37,7 @@
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th class="action-header">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +52,7 @@
                         <td class="alamat">{{ $anggota->anggota->alamat }}</td>
                         <td class="{{ $anggota->anggota->status == 'aktif' ? 'text-success' : 'text-danger' }}">
                             {{ Str::title($anggota->anggota->status) }}</td>
-                        <td>
+                        <td class="actions">
                             <button onclick="viewData({{ json_encode($anggota) }})" class="btn text-primary m-0"
                                 data-bs-toggle="modal" data-bs-target="#viewModal">View</button> |
                             <form class="d-inline-block" action="{{ route('anggota.delete', $anggota->id) }}"
@@ -84,6 +90,7 @@
         </div>
     </div>
 
+
     <script>
         function viewData(data) {
             $('#username-modal').text(data.username);
@@ -115,5 +122,29 @@
                 });
             });
         });
+    </script>
+
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script>
+        function downloadPDF() {
+            var table = document.getElementById('table-list');
+            var opt = {
+                margin: 10,
+                filename: 'Daftar Anggota STT.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 2
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
+                }
+            };
+            html2pdf(table, opt);
+        }
     </script>
 @endsection
