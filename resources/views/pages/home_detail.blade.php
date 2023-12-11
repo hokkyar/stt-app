@@ -48,7 +48,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ $berita->judul }}</h5>
-                <p class="card-text">{{ $berita->isi }}</p>
+                <p class="card-text">{!! $berita->isi !!}</p>
                 <p class="card-text">Diperbarui oleh Admin: {{ $berita->updated_at }}</p>
             </div>
         </div>

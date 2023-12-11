@@ -34,16 +34,20 @@
                     value="{{ $berita->judul }}">
             </div>
             <div class="mb-3">
-                <label for="isi" class="form-label">Isi</label>
-                <textarea id="isi" name="isi" class="form-control">{{ $berita->isi }}</textarea>
-            </div>
-            <div class="mb-3">
                 <label for="sampul" class="form-label">Cover</label><br>
                 <input type="file" class="form-control" id="sampul" name="sampul" accept="image/*">
+            </div>
+            <div class="mb-3">
+                <label for="editor" class="form-label">Konten</label>
+                <textarea id="editor" name="isi" class="form-control">{{ $berita->isi }}</textarea>
             </div>
             <button type="submit" class="btn btn-warning w-100 mt-3">Update</button>
         </form>
     </div>
+
+    <script>
+        const editor = Jodit.make('#editor');
+    </script>
 
     <script>
         $(document).ready(function() {

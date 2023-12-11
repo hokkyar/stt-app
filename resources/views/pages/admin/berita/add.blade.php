@@ -32,16 +32,20 @@
                 <input required name="judul" type="text" class="form-control" id="judul">
             </div>
             <div class="mb-3">
-                <label for="isi" class="form-label">Isi</label>
-                <textarea id="isi" name="isi" class="form-control"></textarea>
-            </div>
-            <div class="mb-3">
                 <label for="sampul" class="form-label">Cover</label><br>
                 <input type="file" class="form-control" id="sampul" name="sampul" accept="image/*">
+            </div>
+            <div class="mb-3">
+                <label for="editor" class="form-label">Konten</label>
+                <textarea id="editor" name="isi" class="form-control"></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-3">Tambah</button>
         </form>
     </div>
+
+    <script>
+        const editor = Jodit.make('#editor');
+    </script>
 
     <script>
         $(document).ready(function() {

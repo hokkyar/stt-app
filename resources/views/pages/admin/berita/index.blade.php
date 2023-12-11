@@ -32,7 +32,6 @@
                         <h5 class="card-title"><a class="item-title" style="text-decoration: none;"
                                 href="/admin/berita/view/{{ $berita->id }}">{{ $berita->judul }}</a>
                         </h5>
-                        <p class="card-text item-desc">{{ Str::limit($berita->isi, 30, '...') }}</p>
                         <p class="card-text">{{ $berita->created_at }}</p>
                     </div>
                 </div>
