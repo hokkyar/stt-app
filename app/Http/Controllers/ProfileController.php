@@ -35,6 +35,8 @@ class ProfileController extends Controller
       $nama_gambar = time() . '.' . $struktur->getClientOriginalExtension();
       $struktur->move(public_path('uploads'), $nama_gambar);
       $profile->struktur = 'uploads/' . $nama_gambar;
+    } else {
+      $profile->struktur = $profile->struktur;
     }
 
     $profile->nama_stt = $request->nama_stt;
